@@ -40,3 +40,12 @@ console.log( "02512603".match(re) ); // null
 console.log( "99/99/99".match(re) ); // null
 console.log( "01/01/15".match(re) ); // [ '01/01/15' ] great!
 
+
+
+//we are trying to match any between "", this will not work as expected, because * is greedy
+var re = /".*"/g;
+console.log( 'Houston, we have a problem with "string one" and "string two". Please respond.'.match(re) ); // [ '"string one" and "string two"' ]
+
+var re = /"[^"\r\n]*"/g;
+console.log( 'Houston, we have a problem with "string one" and "string two". Please respond.'.match(re) ); // [ '"string one"', '"string two"' ] - great!
+
